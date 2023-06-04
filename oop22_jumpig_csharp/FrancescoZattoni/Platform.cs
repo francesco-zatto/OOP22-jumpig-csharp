@@ -1,6 +1,0 @@
-namespace FrancescoZattoni;
-
-class Platform 
-{
-    
-}
