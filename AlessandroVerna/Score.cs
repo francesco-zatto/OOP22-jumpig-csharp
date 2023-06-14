@@ -1,6 +1,6 @@
 namespace AlessandroVerna;
 
-public interface Score
+public interface IScore
 {
     string Username { get; }
 
