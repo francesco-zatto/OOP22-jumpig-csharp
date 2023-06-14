@@ -1,6 +1,6 @@
 namespace FrancescoZattoni;
 
-class AbstractGameEntity
+public abstract class AbstractGameEntity : IGameEntity 
 {
-    
+
 }
