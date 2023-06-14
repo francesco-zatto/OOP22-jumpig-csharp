@@ -1,6 +1,7 @@
-namespace FrancescoZattoni;
-
-public interface IGameEntity
+namespace FrancescoZattoni
 {
+    public interface IGameEntity
+    {
 
+    }
 }

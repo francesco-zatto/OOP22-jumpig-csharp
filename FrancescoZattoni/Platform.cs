@@ -1,6 +1,7 @@
-namespace FrancescoZattoni;
-
-public interface IPlatform
+namespace FrancescoZattoni
 {
-    
+    public interface IPlatform
+    {
+        
+    }
 }

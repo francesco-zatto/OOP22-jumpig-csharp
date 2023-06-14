@@ -1,9 +1,7 @@
-namespace FrancescoZattoni;
-
-public interface ICollisionHandler
+namespace FrancescoZattoni
 {
-    public static void Main()
+    public interface ICollisionHandler
     {
-        Console.WriteLine("New class!");
-    }
+
+    }   
 }

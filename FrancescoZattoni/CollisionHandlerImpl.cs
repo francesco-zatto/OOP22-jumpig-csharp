@@ -1,6 +1,7 @@
-namespace FrancescoZattoni;
-
-public class CollisionHandlerImpl : ICollisionHandler
+namespace FrancescoZattoni
 {
+    public class CollisionHandlerImpl : ICollisionHandler
+    {
 
+    }
 }

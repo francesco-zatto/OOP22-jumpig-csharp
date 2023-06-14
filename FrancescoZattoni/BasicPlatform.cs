@@ -1,6 +1,7 @@
-namespace FrancescoZattoni;
-
-public class BasicPlatform : AbstractPlatform
+namespace FrancescoZattoni
 {
+    public class BasicPlatform : AbstractPlatform
+    {
 
+    }    
 }

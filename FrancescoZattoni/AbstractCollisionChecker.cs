@@ -1,6 +1,7 @@
-namespace FrancescoZattoni;
-
-public abstract class AbstractCollisionChecker : ICollisionChecker
+namespace FrancescoZattoni
 {
-    
+    public abstract class AbstractCollisionChecker : ICollisionChecker
+    {
+        
+    }   
 }

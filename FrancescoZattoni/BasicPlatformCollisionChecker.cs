@@ -1,6 +1,7 @@
-namespace FrancescoZattoni;
-
-public class BasicPlatformCollisionChecker : PlatformCollisionChecker
+namespace FrancescoZattoni
 {
+    public class BasicPlatformCollisionChecker : PlatformCollisionChecker
+    {
 
+    }
 }

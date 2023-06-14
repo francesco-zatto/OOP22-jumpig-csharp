@@ -1,6 +1,7 @@
-namespace FrancescoZattoni;
-
-public abstract class AbstractPlatform : IPlatform
+namespace FrancescoZattoni
 {
-    
+    public abstract class AbstractPlatform : IPlatform
+    {
+        
+    }    
 }

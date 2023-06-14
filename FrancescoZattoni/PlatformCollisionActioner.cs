@@ -1,7 +1,8 @@
-namespace FrancescoZattoni;
-
-public class PlatformCollisionActioner : ICollisionActioner
+namespace FrancescoZattoni
 {
-    
+    public class PlatformCollisionActioner : ICollisionActioner
+    {
+        
+    }
 }
 

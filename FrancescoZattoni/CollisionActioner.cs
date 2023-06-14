@@ -1,6 +1,7 @@
-namespace FrancescoZattoni;
-
-public interface ICollisionActioner
+namespace FrancescoZattoni
 {
-    
+    public interface ICollisionActioner
+    {
+        
+    }
 }
