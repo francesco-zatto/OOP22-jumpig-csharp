@@ -1,3 +1,4 @@
+namespace AlessandroVerna;
 public interface IPosition
 {
     double X { get; }
