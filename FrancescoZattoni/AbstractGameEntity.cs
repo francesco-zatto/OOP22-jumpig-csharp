@@ -1,0 +1,6 @@
+namespace FrancescoZattoni;
+
+class AbstractGameEntity
+{
+    
+}
