@@ -12,7 +12,7 @@ public interface IPlayer
 
     void DecreaseLives();
 
-    void ComputeVelocity(double gravity, double deltaTime, int direction);
+    void ComputeVelocity(double gravity, double deltaTime, Direction direction);
 
     void IncrementCoins();
 
