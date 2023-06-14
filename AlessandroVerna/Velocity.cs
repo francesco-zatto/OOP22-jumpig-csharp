@@ -8,9 +8,9 @@ public interface IVelocity
 
     double YComponent { get; }
 
-    IPosition computeMovement(IPosition initialPosition, double deltaTime);
+    IPosition ComputeMovement(IPosition initialPosition, double deltaTime);
 
-    void computeAcceleratedVelocity(double gravity, double deltaTime);
+    void ComputeAcceleratedVelocity(double gravity, double deltaTime);
 
-    void computeHorizontalVelocity(double gravity, double deltaTime);
+    void ComputeHorizontalVelocity(double gravity, double deltaTime);
 }
