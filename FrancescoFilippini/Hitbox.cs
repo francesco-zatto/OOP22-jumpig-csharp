@@ -8,7 +8,7 @@ public interface Hitbox
     * The method to get the center of the shape.
     * @return the center of the shape.
     */
-    PositionImpl GetCenter();
+    PositionImpl GetCenter{ get; }
 
     /*
     * The method to update the HitBox position.
@@ -16,11 +16,11 @@ public interface Hitbox
     */
     void UpdateHitBox(PositionImpl center);
 
-    double getLeftX();
+    double getLeftX{ get; }
 
-    double getRightX();
+    double getRightX{ get; }
 
-    double getUpperY();
+    double getUpperY{ get; }
 
-    double getLowerY();
+    double getLowerY{ get; }
 }
