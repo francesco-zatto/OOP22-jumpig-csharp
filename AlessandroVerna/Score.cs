@@ -1,10 +1,11 @@
 namespace AlessandroVerna;
-
-public interface IScore
 {
-    string Username { get; }
+    public interface IScore
+    {
+        string Username { get; }
 
-    int HeightScore { get; }
+        int HeightScore { get; }
 
-    int Coins { get; }
+        int Coins { get; }
+    }
 }

@@ -1,24 +1,27 @@
+using FrancescoZattoni;
+
 namespace AlessandroVerna;
-
-public interface IPlayer 
 {
-    int Lives{ get; }
+    public interface IPlayer : IGameEntity
+    {
+        int Lives{ get; }
 
-    IVelocity Velocity{ get; set; }
+        IVelocity Velocity{ get; set; }
 
-    double? PlatformHeight{ get; set; }
+        double? PlatformHeight{ get; set; }
 
-    int Coins{ get; }
+        int Coins{ get; }
 
-    void DecreaseLives();
+        void DecreaseLives();
 
-    void ComputeVelocity(double gravity, double deltaTime, Direction direction);
+        void ComputeVelocity(double gravity, double deltaTime, Direction direction);
 
-    void IncrementCoins();
+        void IncrementCoins();
 
-    void ComputePosition(double deltaTime);
+        void ComputePosition(double deltaTime);
 
-    IPlayer copy();
+        IPlayer copy();
 
-    void MoveToEdges(IPosition edge);
+        void MoveToEdges(IPosition edge);
+    }
 }
