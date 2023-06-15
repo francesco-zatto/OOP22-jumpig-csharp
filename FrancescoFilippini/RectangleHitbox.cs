@@ -9,16 +9,16 @@ namespace FrancescoFilippini
         */
         public RectangleHitbox(PositionImpl center, double width, double height)
         {
-            GetCenter = center;
-            GetWidth = width;
-            GetHeight = height;
+            getCenter = center;
+            getWidth = width;
+            getHeight = height;
         }
 
-        public PositionImpl GetCenter{ get; set; }
+        public PositionImpl getCenter{ get; set; }
 
-        public double GetWidth{ get; }
+        public double getWidth{ get; }
 
-        public double GetHeight{ get; }
+        public double getHeight{ get; }
 
         public double getLeftX => CalculateRectangleCoordinate(true);
 
@@ -35,15 +35,15 @@ namespace FrancescoFilippini
     */
         private double CalculateRectangleCoordinate(bool isSignNegative)
         {
-            double dimension = isSignNegative ? GetHeight : GetWidth;
-            double coordinate =  isSignNegative ? GetCenter.Y : GetCenter.X;
+            double dimension = isSignNegative ? getHeight : getWidth;
+            double coordinate =  isSignNegative ? getCenter.Y : getCenter.X;
             double sign = isSignNegative ? -1 : 1;
             return coordinate + sign * (dimension / 2);
         }
         
         public void UpdateHitBox(PositionImpl center)
         {
-            GetCenter = center;
+            getCenter = center;
         }
     }
 }

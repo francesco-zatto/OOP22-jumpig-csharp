@@ -9,20 +9,20 @@ namespace FrancescoFilippini
         */
         public CircleHitbox (PositionImpl center, double radius)
         {
-            GetCenter = center;
-            GetRadius = radius;
+            getCenter = center;
+            getRadius = radius;
         }
 
-        public PositionImpl GetCenter { get; set; }
+        public PositionImpl getCenter { get; set; }
 
-        public double GetRadius { get; }
+        public double getRadius { get; }
 
         public double getLeftX { get; }
 
         public double getRightX { get; }
 
         public double getUpperY { get; }
-        
+
         public double getLowerY { get; }
 
         /*
@@ -31,7 +31,7 @@ namespace FrancescoFilippini
 
         public void UpdateHitBox(PositionImpl center) 
         {
-            GetCenter = center;
+            getCenter = center;
         }
     }
 }
