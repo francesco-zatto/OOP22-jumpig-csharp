@@ -1,11 +1,9 @@
-using System.Collections;
-
 namespace AlessandroVerna
 {
     public class LeaderboardImpl : ILeaderboard
     {
-        private static int TOP_SCORES = 10;
-        private List<IScore> _scoreLeaderboard;
+        private static readonly int TOP_SCORES = 10;
+        private readonly List<IScore> _scoreLeaderboard;
 
         public LeaderboardImpl()
         {
@@ -17,7 +15,13 @@ namespace AlessandroVerna
             _scoreLeaderboard = scoreLeaderboard;
         }
 
-        public List<IScore> Scores => _scoreLeaderboard;
+        public List<IScore> Scores => 
+        _scoreLeaderboard.GroupBy(s => s.Username)
+            .Select(g => g.OrderByDescending(s => s.HeightScore).ThenByDescending(s => s.Coins).First())
+            .OrderByDescending(s => s.HeightScore)
+            .ThenByDescending(s => s.Coins)
+            .Take(TOP_SCORES)
+            .ToList();
 
         public void AddScore(IScore score)
         {
