@@ -1,7 +1,7 @@
-using AlessandroVerna
+using AlessandroVerna;
 
 namespace FrancescoFilippini
-
+{
 public interface Hitbox
 {
     /*
@@ -23,4 +23,5 @@ public interface Hitbox
     double getUpperY{ get; }
 
     double getLowerY{ get; }
+}
 }
