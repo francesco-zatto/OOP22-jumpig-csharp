@@ -1,4 +1,6 @@
-namespace AlessandroVerna;
+using FrancescoZattoni;
+
+namespace AlessandroVerna
 {
     public interface IPlayer : IGameEntity
     {
@@ -18,7 +20,7 @@ namespace AlessandroVerna;
 
         void ComputePosition(double deltaTime);
 
-        IPlayer copy();
+        IPlayer Copy();
 
         void MoveToEdges(IPosition edge);
     }

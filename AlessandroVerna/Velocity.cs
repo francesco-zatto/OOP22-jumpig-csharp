@@ -1,4 +1,4 @@
-namespace AlessandroVerna;
+namespace AlessandroVerna
 {
     public interface IVelocity
     {
