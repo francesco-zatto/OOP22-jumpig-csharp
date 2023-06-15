@@ -12,11 +12,17 @@ namespace FrancescoFilippini
             GetCenter = center;
             GetRadius = radius;
         }
+
         public PositionImpl GetCenter { get; set; }
+
         public double GetRadius { get; }
+
         public double getLeftX { get; }
+
         public double getRightX { get; }
+
         public double getUpperY { get; }
+        
         public double getLowerY { get; }
 
         /*
