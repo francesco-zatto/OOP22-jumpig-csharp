@@ -6,6 +6,6 @@ namespace AlessandroVerna
 
         void AddScore(IScore score);
 
-        ILeaderboard copy();
+        ILeaderboard Copy();
     }
 }
