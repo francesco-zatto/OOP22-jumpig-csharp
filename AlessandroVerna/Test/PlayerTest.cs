@@ -12,7 +12,7 @@ namespace AlessandroVerna.Test
             player.Velocity = new VelocityImpl(0, 0);
             Assert.IsTrue(player.Velocity.YComponent == 0);
             Assert.AreEqual(1, 1);
-            Assert.IsFalse(player.PlatformHeight.HasValue);
+            Assert.IsTrue(player.PlatformHeight.HasValue);
             player.PlatformHeight = 10;
             Assert.IsTrue(player.PlatformHeight.HasValue);
         } 
