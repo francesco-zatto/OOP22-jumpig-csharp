@@ -4,6 +4,9 @@ namespace FrancescoFilippini
 {
     public abstract class CircleHitbox : Hitbox
     {
+        /*
+        * Constructor to create a new circular hitbox.
+        */
         public CircleHitbox (PositionImpl center, double radius)
         {
             GetCenter = center;
@@ -15,6 +18,10 @@ namespace FrancescoFilippini
         public double getRightX { get; }
         public double getUpperY { get; }
         public double getLowerY { get; }
+
+        /*
+        * @inheritdoc
+        */
 
         public void UpdateHitBox(PositionImpl center) 
         {
