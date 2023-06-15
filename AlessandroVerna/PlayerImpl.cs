@@ -18,6 +18,15 @@ namespace AlessandroVerna
             _lastPlatformHeight = 1.0;
         }
 
+        private PlayerImpl(IPosition position, IVelocity velocity, int coins,
+        int lives, double? lastPlatformHeight)
+        {
+            _playerVelocity = velocity;
+            _coins = coins;
+            _lives = lives;
+            _lastPlatformHeight = lastPlatformHeight;
+        }
+
         public int Lives => _lives;
 
         public IVelocity Velocity { get => _playerVelocity; set => _playerVelocity = value; }
@@ -32,12 +41,14 @@ namespace AlessandroVerna
 
         public void ComputeVelocity(double gravity, double deltaTime, Direction direction)
         {
-            throw new NotImplementedException();
+            _playerVelocity.ComputeAcceleratedVelocity(gravity, deltaTime);
+            _playerVelocity.ComputeHorizontalVelocity(direction);
         }
 
         public IPlayer Copy()
         {
-            throw new NotImplementedException();
+            return new PlayerImpl(Position, _playerVelocity, _coins, 
+                _lives, _lastPlatformHeight);
         }
 
         public void DecreaseLives()
