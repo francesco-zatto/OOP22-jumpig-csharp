@@ -12,6 +12,6 @@ namespace AlessandroVerna
 
         void ComputeAcceleratedVelocity(double gravity, double deltaTime);
 
-        void ComputeHorizontalVelocity(double gravity, double deltaTime);
+        void ComputeHorizontalVelocity(Direction direction);
     }
 }
