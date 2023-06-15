@@ -16,5 +16,16 @@ namespace AlessandroVerna.Test
             leaderboard.AddScore(new ScoreImpl("Alessandro", HEIGHT_SCORE, COINS));
             Assert.AreEqual("Alessandro", leaderboard.Scores.ElementAt(0).Username);
         }
+
+        [Test]
+        public void TestCopy()
+        {
+            var leaderboard = new LeaderboardImpl();
+            leaderboard.AddScore(new ScoreImpl("Daniel", HEIGHT_SCORE / 2, COINS));
+            var copy = leaderboard.Copy();
+            Assert.AreNotEqual(copy, leaderboard);
+            var copy2 = leaderboard;
+            Assert.AreEqual(copy2, leaderboard);
+        }
     }
 }
