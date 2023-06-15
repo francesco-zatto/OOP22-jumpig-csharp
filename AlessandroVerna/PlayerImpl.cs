@@ -4,8 +4,8 @@ namespace AlessandroVerna
 {
     public class PlayerImpl : AbstractGameEntity, IPlayer
     {
-        private static double INITIAL_VELOCITY = 20;
-        private static int MAXLIVES = 3;
+        private static readonly double INITIAL_VELOCITY = 20;
+        private static readonly int MAXLIVES = 3;
         private IVelocity _playerVelocity;
         private int _lives = MAXLIVES;
         private int _coins;
@@ -20,8 +20,8 @@ namespace AlessandroVerna
 
         public int Lives => _lives;
 
-        public IVelocity Velocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public double? PlatformHeight { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IVelocity Velocity { get => _playerVelocity; set => _playerVelocity = value; }
+        public double? PlatformHeight { get => _lastPlatformHeight; set => _lastPlatformHeight = value; }
 
         public int Coins => _coins;
 
@@ -42,12 +42,12 @@ namespace AlessandroVerna
 
         public void DecreaseLives()
         {
-            throw new NotImplementedException();
+            _lives--;
         }
 
         public void IncrementCoins()
         {
-            throw new NotImplementedException();
+            _coins++;
         }
 
         public void MoveToEdges(IPosition edge)
