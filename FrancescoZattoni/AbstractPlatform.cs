@@ -18,6 +18,6 @@ namespace FrancescoZattoni
 
         public double Length => _length;
 
-        public abstract void handleCollision(IPlayer player);
+        public abstract void HandleCollision(IPlayer player);
     }
 }

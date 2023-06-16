@@ -4,6 +4,6 @@ namespace FrancescoZattoni
 {
     public interface Collidable
     {
-        void handleCollision(IPlayer player);
+        void HandleCollision(IPlayer player);
     }
 }
