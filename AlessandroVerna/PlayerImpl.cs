@@ -1,8 +1,9 @@
+using FrancescoFilippini;
 using FrancescoZattoni;
 
 namespace AlessandroVerna
 {
-    public class PlayerImpl : AbstractGameEntity, IPlayer
+    public class PlayerImpl : AbstractGameEntity<RectangleHitbox>, IPlayer
     {
         private static readonly double INITIAL_VELOCITY = 20;
         private static readonly int MAXLIVES = 3;
@@ -30,13 +31,16 @@ namespace AlessandroVerna
         public int Lives => _lives;
 
         public IVelocity Velocity { get => _playerVelocity; set => _playerVelocity = value; }
+
         public double? PlatformHeight { get => _lastPlatformHeight; set => _lastPlatformHeight = value; }
 
         public int Coins => _coins;
 
         public void ComputePosition(double deltaTime)
         {
-            throw new NotImplementedException();
+            var finalPosition = _playerVelocity.ComputeMovement(base.Position, deltaTime);
+            base.Position = finalPosition;
+            base.Hitbox.UpdateHitBox(finalPosition);
         }
 
         public void ComputeVelocity(double gravity, double deltaTime, Direction direction)
@@ -51,6 +55,11 @@ namespace AlessandroVerna
                 _lives, _lastPlatformHeight);
         }
 
+        public override RectangleHitbox CreateScaledHitbox(IPosition position)
+        {
+            throw new NotImplementedException();
+        }
+
         public void DecreaseLives()
         {
             _lives--;
@@ -61,9 +70,9 @@ namespace AlessandroVerna
             _coins++;
         }
 
-        public void MoveToEdges(IPosition edge)
+        public void MoveToEdges(IPosition corner)
         {
-            throw new NotImplementedException();
+            base.Position = corner;
         }
     }
 }
