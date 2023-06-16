@@ -38,8 +38,8 @@ namespace FrancescoZattoni.Test
         private void ComputeMovement(IPlayer player, double collisionTime) {
             for (double t = 0.0; t < collisionTime; t = t + DELTA_TIME)
             {
-                player.ComputeVelocity(GRAVITY, t, (Direction.HorizontalZero));
-                player.ComputePosition(t);
+                player.ComputeVelocity(GRAVITY, DELTA_TIME, (Direction.HorizontalZero));
+                player.ComputePosition(DELTA_TIME);
             }
         }
         [Test]
