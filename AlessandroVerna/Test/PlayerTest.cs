@@ -71,5 +71,25 @@ namespace AlessandroVerna.Test
             Assert.AreEqual(PLAYER_COMPONENT_Y + (player.Velocity.YComponent * time),
                 player.Position.Y);
         }
+
+        [Test]
+        public void TestPlayerVelocity()
+        {
+            double time = 0.0;
+            var player = new PlayerImpl(new PositionImpl(PLAYER_COMPONENT_X, PLAYER_COMPONENT_Y));
+            player.Velocity = new VelocityImpl(5, 5);
+            player.ComputeVelocity(GRAVITY, time, Direction.HorizontalZero);
+            Assert.AreEqual(0, player.Velocity.XComponent);
+            Assert.AreEqual(5, player.Velocity.YComponent);
+            time = 1.0;
+            player.ComputeVelocity(GRAVITY, time, Direction.HorizontalDx);
+            Assert.AreEqual(5 + (GRAVITY * time), player.Velocity.YComponent);
+            Assert.AreEqual(20, player.Velocity.XComponent);
+            var preVelocity = player.Velocity.YComponent;
+            time = 2.0;
+            player.ComputeVelocity(GRAVITY, time, Direction.HorizontalSx);
+            Assert.AreEqual(-20, player.Velocity.XComponent);
+            Assert.AreEqual(preVelocity + (GRAVITY * time), player.Velocity.YComponent);
+        }
     }
 }
