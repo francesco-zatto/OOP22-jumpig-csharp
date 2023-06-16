@@ -12,6 +12,7 @@ namespace FrancescoZattoni
             : base(position, new PlatformHitbox((PositionImpl)position)) //TODO CANCELLA CASTING
         {
             _jumpVelocity = new VelocityImpl(0, jumpVelocity);
+            _length = Hitbox.getWidth;
         }
 
         public IVelocity JumpVelocity => _jumpVelocity;

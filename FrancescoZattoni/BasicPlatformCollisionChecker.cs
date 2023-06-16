@@ -2,7 +2,7 @@ namespace FrancescoZattoni
 {
     public class BasicPlatformCollisionChecker : PlatformCollisionChecker<BasicPlatform>
     {
-        protected override bool canEntityCollide(BasicPlatform gameEntity)
+        protected override bool CanEntityCollide(BasicPlatform gameEntity)
         {
             return true;
         }

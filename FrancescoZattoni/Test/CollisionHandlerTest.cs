@@ -15,27 +15,27 @@ namespace FrancescoZattoni.Test
         private static readonly double HALF_PLATFORM_HEIGHT = new PlatformHitbox((PositionImpl)STARTING_POSITION).getHeight / 2;
         private static readonly IPosition PLATFORM_UNDER_PLAYER_POSITION = new PositionImpl(
             PLAYER_POSITION_X, 
-            new PlayerHitbox(STARTING_POSITION).getLowerY() - HALF_PLATFORM_HEIGHT
-    );
+            new PlayerHitbox((PositionImpl)STARTING_POSITION).getLowerY - HALF_PLATFORM_HEIGHT
+        );
 
-        private static void assertCollision(IPlayer player, IPlatform platform) 
+        private static void AssertCollision(IPlayer player, IPlatform platform) 
         {
             Assert.AreEqual(platform.JumpVelocity.YComponent, player.Velocity.YComponent);
             Assert.IsNotNull(player.PlatformHeight);
             Assert.AreEqual(player.PlatformHeight, platform.Position.Y);
         }
 
-        private static void assertInJumpingRange(IPlayer player, IPlatform platform) {
-            /*final var playerLowerY = player.getHitbox().getLowerY();
-            assertTrue(playerLowerY > platform.getPosition().getY());
-            assertTrue(playerLowerY < platform.getHitbox().getUpperY());*/
+        private static void AssertInJumpingRange(IPlayer player, IPlatform platform) {
+            double playerLowerY = player.Hitbox.getLowerY;
+            Assert.IsTrue(playerLowerY > platform.Position.Y);
+            Assert.IsTrue(playerLowerY < platform.Hitbox.getUpperY);
         }
 
-        private double computeFallingTime(IPlayer player) {
+        private double ComputeFallingTime(IPlayer player) {
             return 2 * player.Velocity.YComponent / -GRAVITY;
         }
 
-        private void computeMovement(IPlayer player, double collisionTime) {
+        private void ComputeMovement(IPlayer player, double collisionTime) {
             for (double t = 0.0; t < collisionTime; t = t + DELTA_TIME)
             {
                 player.ComputeVelocity(GRAVITY, t, (Direction.HorizontalZero));
@@ -43,20 +43,25 @@ namespace FrancescoZattoni.Test
             }
         }
         [Test]
-        public void testBasicPlatformCollision()
+        public void TestBasicPlatformCollision()
         {
-            var player = new PlayerImpl(STARTING_POSITION);
-            var platform = new BasicPlatform(PLATFORM_UNDER_PLAYER_POSITION, PLATFORM_VELOCITY);
-        final double collisionTime = computeFallingTime(player) - DELTA_TIME;
-        computeMovement(player, collisionTime);
-        platform.handleCollision(player);
-        assertCollision(player, platform);
+            IPlayer player = new PlayerImpl(STARTING_POSITION);
+            IPlatform platform = new BasicPlatform(PLATFORM_UNDER_PLAYER_POSITION, PLATFORM_VELOCITY);
+            double collisionTime = ComputeFallingTime(player) - DELTA_TIME;
+            ComputeMovement(player, collisionTime);
+            platform.HandleCollision(player);
+            AssertCollision(player, platform);
         }
 
         [Test]
-        public void testPlayerIsNotGoingDown()
+        public void TestPlayerIsNotGoingDown()
         {
-            Assert.AreEqual(1, 1);
+            IPlayer player = new PlayerImpl(STARTING_POSITION);
+            IPlatform platform = new BasicPlatform(PLATFORM_UNDER_PLAYER_POSITION, PLATFORM_VELOCITY);
+            platform.HandleCollision(player);
+            /* The player jumps on a platform only if he is going down, i.e yComponent is negative.*/
+            Assert.IsTrue(player.Velocity.YComponent >= 0);
+            Assert.AreNotEqual(player.Velocity.YComponent, platform.JumpVelocity.YComponent);
         }
     }
 }

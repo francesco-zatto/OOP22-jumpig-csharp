@@ -7,18 +7,18 @@ namespace FrancescoZattoni
     {
 
         public bool Check(IPlayer player, E gameEntity) {
-            return canPlayerCollide(player)
-                && canEntityCollide(gameEntity)
-                && areBoundsColliding(player, gameEntity);
+            return CanPlayerCollide(player)
+                && CanEntityCollide(gameEntity)
+                && AreBoundsColliding(player, gameEntity);
         }
 
-        protected abstract bool areBoundsColliding(IPlayer player, E gameEntity);
+        protected abstract bool AreBoundsColliding(IPlayer player, E gameEntity);
 
-        protected abstract bool canPlayerCollide(IPlayer player);
+        protected abstract bool CanPlayerCollide(IPlayer player);
 
-        protected abstract bool canEntityCollide(E gameEntity);
+        protected abstract bool CanEntityCollide(E gameEntity);
 
-        protected static bool isBetween(double num, double min, double max) {
+        protected static bool IsBetween(double num, double min, double max) {
             return min <= num && num <= max;
         }
         
