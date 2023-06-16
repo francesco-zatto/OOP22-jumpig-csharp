@@ -4,10 +4,14 @@ namespace AlessandroVerna.Test
 {
     class PlayerTest
     {
+        private static readonly double PLAYER_COMPONENT_X = 5;
+        private static readonly double PLAYER_COMPONENT_Y = 10;
+        private static readonly double GRAVITY = 10.0;
+
         [Test]
         public void TestSetters()
         {
-            var player = new PlayerImpl(new PositionImpl(5, 5));
+            var player = new PlayerImpl(new PositionImpl(PLAYER_COMPONENT_X, PLAYER_COMPONENT_Y));
             Assert.IsTrue(player.Velocity.YComponent == 20);
             player.Velocity = new VelocityImpl(0, 0);
             Assert.IsTrue(player.Velocity.YComponent == 0);
@@ -20,7 +24,7 @@ namespace AlessandroVerna.Test
         [Test]
         public void TestLives()
         {
-            var player = new PlayerImpl(new PositionImpl(5, 5));
+            var player = new PlayerImpl(new PositionImpl(PLAYER_COMPONENT_X, PLAYER_COMPONENT_Y));
             Assert.AreEqual(3, player.Lives);
             player.DecreaseLives();
             Assert.AreEqual(2, player.Lives);
@@ -32,7 +36,7 @@ namespace AlessandroVerna.Test
         [Test]
         public void TestCoins()
         {
-            var player = new PlayerImpl(new PositionImpl(3, 6));
+            var player = new PlayerImpl(new PositionImpl(PLAYER_COMPONENT_X, PLAYER_COMPONENT_Y));
             Assert.AreEqual(0, player.Coins);
             int bound = 10;
             CoinIterator(bound, player);
@@ -47,6 +51,25 @@ namespace AlessandroVerna.Test
             {
                 player.IncrementCoins();
             }
+        }
+
+        [Test]
+        public void TestPlayerPosition()
+        {
+            double time = 0.0;
+            var player = new PlayerImpl(new PositionImpl(PLAYER_COMPONENT_X, PLAYER_COMPONENT_Y))
+            {
+                Velocity = new VelocityImpl(5, 5)
+            };
+            player.ComputePosition(time);
+            Assert.AreEqual(PLAYER_COMPONENT_X, player.Position.X);
+            Assert.AreEqual(PLAYER_COMPONENT_Y, player.Position.Y);
+            time = 2.0;
+            player.ComputePosition(time);
+            Assert.AreEqual(PLAYER_COMPONENT_X + (player.Velocity.XComponent * time),
+                player.Position.X);
+            Assert.AreEqual(PLAYER_COMPONENT_Y + (player.Velocity.YComponent * time),
+                player.Position.Y);
         }
     }
 }
