@@ -1,8 +1,9 @@
+using FrancescoFilippini;
 using FrancescoZattoni;
 
 namespace AlessandroVerna
 {
-    public interface IPlayer : IGameEntity
+    public interface IPlayer : IGameEntity<RectangleHitbox>
     {
         int Lives{ get; }
 
@@ -22,6 +23,6 @@ namespace AlessandroVerna
 
         IPlayer Copy();
 
-        void MoveToEdges(IPosition edge);
+        void MoveToEdges(IPosition corner);
     }
 }

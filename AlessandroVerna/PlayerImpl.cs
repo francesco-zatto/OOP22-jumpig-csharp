@@ -31,6 +31,7 @@ namespace AlessandroVerna
         public int Lives => _lives;
 
         public IVelocity Velocity { get => _playerVelocity; set => _playerVelocity = value; }
+
         public double? PlatformHeight { get => _lastPlatformHeight; set => _lastPlatformHeight = value; }
 
         public int Coins => _coins;
@@ -69,9 +70,9 @@ namespace AlessandroVerna
             _coins++;
         }
 
-        public void MoveToEdges(IPosition edge)
+        public void MoveToEdges(IPosition corner)
         {
-            throw new NotImplementedException();
+            base.Position = corner;
         }
     }
 }
