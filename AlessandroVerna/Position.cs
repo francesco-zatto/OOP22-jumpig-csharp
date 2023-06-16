@@ -1,7 +1,9 @@
-namespace AlessandroVerna;
-public interface IPosition
+namespace AlessandroVerna
 {
-    double X { get; }
+    public interface IPosition
+    {
+        double X { get; }
 
-    double Y { get; }
+        double Y { get; }
+    }
 }

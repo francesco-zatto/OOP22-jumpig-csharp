@@ -1,16 +1,17 @@
-namespace AlessandroVerna;
-
-public interface IVelocity
+namespace AlessandroVerna
 {
-    double Module { get; }
+    public interface IVelocity
+    {
+        double Module { get; }
 
-    double XComponent { get; }
+        double XComponent { get; }
 
-    double YComponent { get; }
+        double YComponent { get; }
 
-    IPosition ComputeMovement(IPosition initialPosition, double deltaTime);
+        IPosition ComputeMovement(IPosition initialPosition, double deltaTime);
 
-    void ComputeAcceleratedVelocity(double gravity, double deltaTime);
+        void ComputeAcceleratedVelocity(double gravity, double deltaTime);
 
-    void ComputeHorizontalVelocity(double gravity, double deltaTime);
+        void ComputeHorizontalVelocity(Direction direction);
+    }
 }
