@@ -7,7 +7,7 @@ namespace FrancescoZattoni
     {
 
         private readonly ICollisionHandler<RectangleHitbox, BasicPlatform> _collisionHandler = new CollisionHandlerImpl<RectangleHitbox, BasicPlatform>(
-            new PlatformCollisionActioner<RectangleHitbox, BasicPlatform>(),
+            new PlatformCollisionActioner<BasicPlatform>(),
             new BasicPlatformCollisionChecker()
         );
 

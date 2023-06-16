@@ -3,11 +3,16 @@ using FrancescoFilippini;
 
 namespace FrancescoZattoni
 {
-    public class PlatformCollisionActioner<H, E> : ICollisionActioner<H, E> where H : Hitbox where E : IGameEntity<H>
+    public class PlatformCollisionActioner<P> : ICollisionActioner<RectangleHitbox, P> where P : IPlatform
     {
-        public void Act(IPlayer player, E gameEntity)
+        public void Act(IPlayer player, P gameEntity)
         {
-            throw new NotImplementedException();
+            var platformJumpVelocity = gameEntity.JumpVelocity;
+            player.Velocity = new VelocityImpl(
+                player.Velocity.XComponent,
+                platformJumpVelocity.YComponent
+            );
+            player.PlatformHeight = gameEntity.Position.Y;
         }
     }
 }

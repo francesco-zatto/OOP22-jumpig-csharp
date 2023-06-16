@@ -27,11 +27,9 @@ namespace FrancescoZattoni
 
         public override bool Equals(object? obj)
         {
-            return obj is AbstractGameEntity<H> entity &&
-                   EqualityComparer<IPosition>.Default.Equals(_position, entity._position) &&
-                   EqualityComparer<H>.Default.Equals(_hitbox, entity._hitbox) &&
-                   EqualityComparer<IPosition>.Default.Equals(Position, entity.Position) &&
-                   EqualityComparer<H>.Default.Equals(Hitbox, entity.Hitbox);
+            return obj is AbstractGameEntity<H> entity 
+                   && EqualityComparer<IPosition>.Default.Equals(Position, entity.Position)
+                   && EqualityComparer<H>.Default.Equals(Hitbox, entity.Hitbox);
         }
 
         public override int GetHashCode()
