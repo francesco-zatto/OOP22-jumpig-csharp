@@ -8,7 +8,7 @@ namespace AlessandroVerna.Test
         private static readonly int COINS = 30;
         private static readonly int NUM_SCORES = 13;
         private static readonly Random RANDOM = new();
-        private static int TOP_10 = 10;
+        private static readonly int TOP_10 = 10;
 
         [Test]
         public void TestAddLeaderboard()
@@ -40,7 +40,9 @@ namespace AlessandroVerna.Test
         private static void CreateLeaderboard(ILeaderboard leaderboard) {
             for (int i = 0; i < NUM_SCORES; i++)
             {
-                leaderboard.AddScore(new ScoreImpl("a"+i, RANDOM.Next(0, HEIGHT_SCORE), RANDOM.Next(0, COINS)));
+                leaderboard.AddScore(new ScoreImpl("a" + i,
+                    RANDOM.Next(0, HEIGHT_SCORE), 
+                    RANDOM.Next(0, COINS)));
             }
         }
     }
