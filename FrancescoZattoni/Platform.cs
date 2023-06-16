@@ -1,8 +1,9 @@
 using AlessandroVerna;
+using FrancescoFilippini;
 
 namespace FrancescoZattoni
 {
-    public interface IPlatform : IGameEntity, Collidable
+    public interface IPlatform : IGameEntity<RectangleHitbox>, Collidable
     {
         IVelocity JumpVelocity {get; }
 

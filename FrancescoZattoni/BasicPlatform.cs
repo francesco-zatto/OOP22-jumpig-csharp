@@ -1,4 +1,5 @@
 using AlessandroVerna;
+using FrancescoFilippini;
 
 namespace FrancescoZattoni
 {
@@ -8,6 +9,8 @@ namespace FrancescoZattoni
         {
             
         }
+
+        public override RectangleHitbox CreateScaledHitbox(IPosition position) => new PlatformHitbox((PositionImpl)position);
 
         public override void handleCollision(IPlayer player) => Console.WriteLine("");
     }
