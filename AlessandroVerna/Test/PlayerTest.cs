@@ -28,5 +28,25 @@ namespace AlessandroVerna.Test
             player.DecreaseLives();
             Assert.AreEqual(0, player.Lives);
         } 
+
+        [Test]
+        public void TestCoins()
+        {
+            var player = new PlayerImpl(new PositionImpl(3, 6));
+            Assert.AreEqual(0, player.Coins);
+            int bound = 10;
+            CoinIterator(bound, player);
+            Assert.AreEqual(bound, player.Coins);
+            player.IncrementCoins();
+            Assert.AreEqual(bound + 1, player.Coins);
+        }
+
+        private static void CoinIterator(int bound, IPlayer player)
+        {
+            for(int i = 0; i < bound; i++)
+            {
+                player.IncrementCoins();
+            }
+        }
     }
 }
