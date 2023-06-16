@@ -13,6 +13,7 @@ namespace AlessandroVerna
         private double? _lastPlatformHeight;
 
         public PlayerImpl(IPosition position)
+            : base(position, new PlayerHitbox((PositionImpl)position))
         {
             _playerVelocity = new VelocityImpl(0, INITIAL_VELOCITY);
             _coins = 0;
@@ -21,6 +22,7 @@ namespace AlessandroVerna
 
         private PlayerImpl(IPosition position, IVelocity velocity, int coins,
         int lives, double? lastPlatformHeight)
+            : base(position, new PlayerHitbox((PositionImpl)position))
         {
             _playerVelocity = velocity;
             _coins = coins;
@@ -40,7 +42,7 @@ namespace AlessandroVerna
         {
             var finalPosition = _playerVelocity.ComputeMovement(base.Position, deltaTime);
             base.Position = finalPosition;
-            base.Hitbox.UpdateHitBox(finalPosition);
+            base.Hitbox.UpdateHitBox((PositionImpl)finalPosition);
         }
 
         public void ComputeVelocity(double gravity, double deltaTime, Direction direction)
@@ -57,7 +59,7 @@ namespace AlessandroVerna
 
         public override RectangleHitbox CreateScaledHitbox(IPosition position)
         {
-            throw new NotImplementedException();
+            return new PlayerHitbox((PositionImpl)position);
         }
 
         public void DecreaseLives()
