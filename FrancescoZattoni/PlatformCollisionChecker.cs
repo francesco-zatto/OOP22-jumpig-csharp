@@ -10,13 +10,11 @@ namespace FrancescoZattoni
         {
             RectangleHitbox playerHitbox = player.Hitbox;
             RectangleHitbox platformHitbox = gameEntity.Hitbox;
-            return IsPlayerAligned(playerHitbox, platformHitbox) && IsPlayerAbove(playerHitbox, platformHitbox);
+            return IsPlayerAligned(playerHitbox, platformHitbox) 
+                && IsPlayerAbove(playerHitbox, platformHitbox);
         }
 
-        protected override bool CanPlayerCollide(IPlayer player)
-        {
-            return player.Velocity.YComponent < 0;
-        }
+        protected override bool CanPlayerCollide(IPlayer player) => player.Velocity.YComponent < 0;
 
         private bool IsPlayerAligned(RectangleHitbox playerHitbox, RectangleHitbox platformHitbox) {
         double playerLeftX = playerHitbox.getLeftX;
