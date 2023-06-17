@@ -1,9 +1,8 @@
 using FrancescoZattoni;
-using AlessandroVerna;
 
 namespace FrancescoFilippini
 {
-    public interface ICoin : IGameEntity<CircleHitbox>, Collidable
+    public interface ICoin : IGameEntity<CircleHitbox>, ITargettable
     {
     }
 }
