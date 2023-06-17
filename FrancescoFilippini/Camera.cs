@@ -10,8 +10,10 @@ namespace FrancescoFilippini
 
         void SetCameraVelocity(IPlayer player);
 
-        double CameraHeight{ get; set; }
+        double CameraHeight{ get; }
 
-        double PlatformHeight{ get; set; }
+        void SetCameraHeight(double time, IPlayer player);
+
+        double? PlatformHeight{ get; set; }
     }
 }
