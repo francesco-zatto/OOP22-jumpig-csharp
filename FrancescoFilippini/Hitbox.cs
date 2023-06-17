@@ -2,26 +2,26 @@ using AlessandroVerna;
 
 namespace FrancescoFilippini
 {
-public interface Hitbox
+public interface IHitbox
 {
     /*
     * The method to get the center of the shape.
     * @return the center of the shape.
     */
-    PositionImpl getCenter{ get; }
+    IPosition Center{ get; }
 
     /*
     * The method to update the HitBox position.
     * @param center the abscissa and the ordinate of the center of the Hitbox.
     */
-    void UpdateHitBox(PositionImpl center);
+    void UpdateHitBox(IPosition center);
 
-    double getLeftX{ get; }
+    double LeftX{ get; }
 
-    double getRightX{ get; }
+    double RightX{ get; }
 
-    double getUpperY{ get; }
+    double UpperY{ get; }
 
-    double getLowerY{ get; }
+    double LowerY{ get; }
 }
 }

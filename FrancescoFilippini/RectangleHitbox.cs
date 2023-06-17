@@ -2,31 +2,31 @@ using AlessandroVerna;
 
 namespace FrancescoFilippini
 {
-    public abstract class RectangleHitbox : Hitbox
+    public abstract class RectangleHitbox : IHitbox
     {
         /*
         * Constructor to create a new rectangular hitbox.
         */
-        public RectangleHitbox(PositionImpl center, double width, double height)
+        public RectangleHitbox(IPosition center, double width, double height)
         {
-            getCenter = center;
-            getWidth = width;
-            getHeight = height;
+            Center = center;
+            Width = width;
+            Height = height;
         }
 
-        public PositionImpl getCenter{ get; set; }
+        public IPosition Center{ get; set; }
 
-        public double getWidth{ get; }
+        public double Width{ get; }
 
-        public double getHeight{ get; }
+        public double Height{ get; }
 
-        public double getLeftX => CalculateRectangleCoordinate(true);
+        public double LeftX => CalculateRectangleCoordinate(true);
 
-        public double getRightX => CalculateRectangleCoordinate(false);
+        public double RightX => CalculateRectangleCoordinate(false);
 
-        public double getUpperY => CalculateRectangleCoordinate(false);
+        public double UpperY => CalculateRectangleCoordinate(false);
 
-        public double getLowerY => CalculateRectangleCoordinate(true);
+        public double LowerY => CalculateRectangleCoordinate(true);
 
     /*
      * The boolean isSignNegative is true for lowerY and leftX, because methods to get those coordinates has to
@@ -35,15 +35,15 @@ namespace FrancescoFilippini
     */
         private double CalculateRectangleCoordinate(bool isSignNegative)
         {
-            double dimension = isSignNegative ? getHeight : getWidth;
-            double coordinate =  isSignNegative ? getCenter.Y : getCenter.X;
+            double dimension = isSignNegative ? Height : Width;
+            double coordinate =  isSignNegative ? Center.Y : Center.X;
             double sign = isSignNegative ? -1 : 1;
             return coordinate + sign * (dimension / 2);
         }
         
-        public void UpdateHitBox(PositionImpl center)
+        public void UpdateHitBox(IPosition center)
         {
-            getCenter = center;
+            Center = center;
         }
     }
 }

@@ -2,36 +2,36 @@ using AlessandroVerna;
 
 namespace FrancescoFilippini
 {
-    public abstract class CircleHitbox : Hitbox
+    public abstract class CircleHitbox : IHitbox
     {
         /*
         * Constructor to create a new circular hitbox.
         */
-        public CircleHitbox (PositionImpl center, double radius)
+        public CircleHitbox (IPosition center, double radius)
         {
-            getCenter = center;
-            getRadius = radius;
+            Center = center;
+            Radius = radius;
         }
 
-        public PositionImpl getCenter { get; set; }
+        public IPosition Center { get; set; }
 
-        public double getRadius { get; }
+        public double Radius { get; }
 
-        public double getLeftX { get; }
+        public double LeftX { get; }
 
-        public double getRightX { get; }
+        public double RightX { get; }
 
-        public double getUpperY { get; }
+        public double UpperY { get; }
 
-        public double getLowerY { get; }
+        public double LowerY { get; }
 
         /*
         * @inheritdoc
         */
 
-        public void UpdateHitBox(PositionImpl center) 
+        public void UpdateHitBox(IPosition center) 
         {
-            getCenter = center;
+            Center = center;
         }
     }
 }
