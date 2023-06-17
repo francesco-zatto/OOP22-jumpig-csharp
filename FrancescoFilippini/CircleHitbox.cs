@@ -17,13 +17,13 @@ namespace FrancescoFilippini
 
         public double Radius { get; }
 
-        public double LeftX { get; }
+        public abstract double LeftX { get; }
 
-        public double RightX { get; }
+        public abstract double RightX { get; }
 
-        public double UpperY { get; }
+        public abstract double UpperY { get; }
 
-        public double LowerY { get; }
+        public abstract double LowerY { get; }
 
         /*
         * @inheritdoc
