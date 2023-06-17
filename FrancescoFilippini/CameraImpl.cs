@@ -22,11 +22,13 @@ namespace FrancescoFilippini
             get => startHeight; 
             set => startHeight = value; 
         }
+
         public double CameraHeight 
         { 
             get => cameraHeight;
             set => cameraHeight = value;
         }
+
         public double? PlatformHeight 
         { 
             get => lastPlatform; 
@@ -67,4 +69,5 @@ namespace FrancescoFilippini
                 && player.Velocity.YComponent >= 0;
         }
     }
+
 }
