@@ -4,7 +4,7 @@ using FrancescoFilippini;
 namespace FrancescoZattoni
 {
     public sealed class CollisionHandlerImpl<H, E> : ICollisionHandler<H, E> 
-        where H : Hitbox where E : IGameEntity<H>
+        where H : IHitbox where E : IGameEntity<H>
     {
         private readonly ICollisionActioner<H, E> _collisionActioner;
         private readonly ICollisionChecker<H, E> _collisionChecker;

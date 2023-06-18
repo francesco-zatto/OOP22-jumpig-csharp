@@ -3,7 +3,7 @@ using FrancescoFilippini;
 
 namespace FrancescoZattoni
 {
-    public interface IGameEntity<H> where H : Hitbox
+    public interface IGameEntity<H> where H : IHitbox
     {
         IPosition Position {get; }
 

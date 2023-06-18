@@ -3,7 +3,7 @@ using FrancescoFilippini;
 
 namespace FrancescoZattoni
 {
-    public abstract class AbstractCollisionChecker<H, E> : ICollisionChecker<H, E> where H : Hitbox where E : IGameEntity<H>
+    public abstract class AbstractCollisionChecker<H, E> : ICollisionChecker<H, E> where H : IHitbox where E : IGameEntity<H>
     {
 
         public bool Check(IPlayer player, E gameEntity) {

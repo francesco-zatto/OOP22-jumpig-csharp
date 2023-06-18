@@ -12,10 +12,10 @@ namespace FrancescoZattoni.Test
         private static readonly double PLAYER_POSITION_Y = 6.5;
         private static readonly double PLATFORM_VELOCITY = 10;
         private static readonly IPosition STARTING_POSITION = new PositionImpl(PLAYER_POSITION_X, PLAYER_POSITION_Y);
-        private static readonly double HALF_PLATFORM_HEIGHT = new PlatformHitbox((PositionImpl)STARTING_POSITION).getHeight / 2;
+        private static readonly double HALF_PLATFORM_HEIGHT = new PlatformHitbox(STARTING_POSITION).Height / 2;
         private static readonly IPosition PLATFORM_UNDER_PLAYER_POSITION = new PositionImpl(
             PLAYER_POSITION_X, 
-            new PlayerHitbox((PositionImpl)STARTING_POSITION).getLowerY - HALF_PLATFORM_HEIGHT
+            new PlayerHitbox(STARTING_POSITION).LowerY - HALF_PLATFORM_HEIGHT
         );
 
         private static void AssertCollision(IPlayer player, IPlatform platform) 
@@ -26,9 +26,9 @@ namespace FrancescoZattoni.Test
         }
 
         private static void AssertInJumpingRange(IPlayer player, IPlatform platform) {
-            double playerLowerY = player.Hitbox.getLowerY;
+            double playerLowerY = player.Hitbox.LowerY;
             Assert.IsTrue(playerLowerY > platform.Position.Y);
-            Assert.IsTrue(playerLowerY < platform.Hitbox.getUpperY);
+            Assert.IsTrue(playerLowerY < platform.Hitbox.UpperY);
         }
 
         private double ComputeFallingTime(IPlayer player) {
@@ -42,6 +42,7 @@ namespace FrancescoZattoni.Test
                 player.ComputePosition(DELTA_TIME);
             }
         }
+        
         [Test]
         public void TestBasicPlatformCollision()
         {

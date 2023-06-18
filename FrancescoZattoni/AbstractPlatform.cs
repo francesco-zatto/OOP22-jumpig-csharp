@@ -9,10 +9,10 @@ namespace FrancescoZattoni
         private readonly double _length;
 
         protected AbstractPlatform(IPosition position, double jumpVelocity)
-            : base(position, new PlatformHitbox((PositionImpl)position)) //TODO CANCELLA CASTING
+            : base(position, new PlatformHitbox(position)) 
         {
             _jumpVelocity = new VelocityImpl(0, jumpVelocity);
-            _length = Hitbox.getWidth;
+            _length = Hitbox.Width;
         }
 
         public IVelocity JumpVelocity => _jumpVelocity;

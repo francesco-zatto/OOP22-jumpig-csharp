@@ -8,7 +8,7 @@ namespace FrancescoZattoni
 
         private static readonly double PLATFORM_WIDTH = 8; 
         private static readonly double PLATFORM_HEIGHT = 2;
-        public PlatformHitbox(PositionImpl center)
+        public PlatformHitbox(IPosition center)
             : base(center, PLATFORM_WIDTH, PLATFORM_HEIGHT)
         {
         }

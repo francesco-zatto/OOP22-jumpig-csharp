@@ -15,7 +15,7 @@ namespace FrancescoZattoni
         {  
         }
 
-        public override RectangleHitbox CreateScaledHitbox(IPosition position) => new PlatformHitbox((PositionImpl)position);
+        public override RectangleHitbox CreateScaledHitbox(IPosition position) => new PlatformHitbox(position);
 
         public override void HandleCollision(IPlayer player) => _collisionHandler.Handle(player, this);
 

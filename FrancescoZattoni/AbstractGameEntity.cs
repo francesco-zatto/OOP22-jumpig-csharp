@@ -3,7 +3,7 @@ using FrancescoFilippini;
 
 namespace FrancescoZattoni
 {
-    public abstract class AbstractGameEntity<H> : IGameEntity<H> where H : Hitbox
+    public abstract class AbstractGameEntity<H> : IGameEntity<H> where H : IHitbox
     {
         private IPosition _position;
         private readonly H _hitbox;

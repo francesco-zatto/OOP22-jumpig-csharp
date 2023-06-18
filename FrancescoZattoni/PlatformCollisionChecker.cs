@@ -17,19 +17,19 @@ namespace FrancescoZattoni
         protected override bool CanPlayerCollide(IPlayer player) => player.Velocity.YComponent < 0;
 
         private bool IsPlayerAligned(RectangleHitbox playerHitbox, RectangleHitbox platformHitbox) {
-        double playerLeftX = playerHitbox.getLeftX;
-        double playerRightX = playerHitbox.getRightX;
-        double platformLeftX = platformHitbox.getLeftX;
-        double platformRightX = platformHitbox.getRightX;
+        double playerLeftX = playerHitbox.LeftX;
+        double playerRightX = playerHitbox.RightX;
+        double platformLeftX = platformHitbox.LeftX;
+        double platformRightX = platformHitbox.RightX;
         return IsBetween(playerLeftX, platformLeftX, platformRightX) 
             || IsBetween(playerRightX, platformLeftX, platformRightX);
         }
 
         private bool IsPlayerAbove(RectangleHitbox playerHitbox, RectangleHitbox platformHitbox) {
             return IsBetween(
-                playerHitbox.getLowerY, 
-                platformHitbox.getCenter.Y, 
-                platformHitbox.getUpperY
+                playerHitbox.LowerY, 
+                platformHitbox.Center.Y, 
+                platformHitbox.UpperY
             );
         }
 
