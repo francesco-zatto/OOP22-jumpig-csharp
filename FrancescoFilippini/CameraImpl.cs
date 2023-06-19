@@ -65,7 +65,7 @@ namespace FrancescoFilippini
         {
             return player.PlatformHeight.HasValue
                 && (!lastPlatform.HasValue || 
-                        !player.PlatformHeight.Value.Equals(lastPlatform.Value))
+                        player.PlatformHeight.Value.Equals(lastPlatform.Value))
                 && player.Velocity.YComponent >= 0;
         }
     }
