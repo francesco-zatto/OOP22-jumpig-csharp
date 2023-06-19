@@ -64,8 +64,8 @@ namespace FrancescoFilippini
         private bool CheckToSetCameraVelocity(IPlayer player)
         {
             return player.PlatformHeight.HasValue
-                && (!player.PlatformHeight.Value.Equals(lastPlatform.Value)
-                        || lastPlatform == null)
+                && (!lastPlatform.HasValue || 
+                        !player.PlatformHeight.Value.Equals(lastPlatform.Value))
                 && player.Velocity.YComponent >= 0;
         }
     }

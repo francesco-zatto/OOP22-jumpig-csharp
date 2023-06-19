@@ -16,15 +16,19 @@ namespace FrancescoFilippini.Test
         IPlayer player = new PlayerImpl(new PositionImpl(WIDTH / 2, 0));
         ICamera camera = new CameraImpl(player);
         camera.CameraHeight = 0;
-        camera.SetCameraHeight(time, player);
+        player.ComputeVelocity(GRAVITY, time, Direction.HorizontalZero);
         player.ComputePosition(time);
-        Assert.AreEqual(player.Position, camera.CameraHeight);
+        camera.SetCameraVelocity(player);
+        camera.SetCameraHeight(time, player);
+        Assert.AreEqual(player.Position.Y, camera.CameraHeight);
         time = 4.0;
         IPlayer player2 = new PlayerImpl(new PositionImpl(WIDTH / 2, 0));
         camera.CameraHeight = 0;
-        camera.SetCameraHeight(time, player2);
+        player2.ComputeVelocity(GRAVITY * (-1), time, Direction.HorizontalZero);
         player2.ComputePosition(time);
-        Assert.AreEqual(player2.Position, camera.CameraHeight);
+        camera.SetCameraVelocity(player2);
+        camera.SetCameraHeight(time, player2);
+        Assert.AreEqual(player2.Position.Y, camera.CameraHeight);
         }
 
         [Test]
