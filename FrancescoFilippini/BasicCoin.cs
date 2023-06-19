@@ -7,8 +7,8 @@ namespace FrancescoFilippini
     public class BasicCoin : AbstractGameEntity<CircleHitbox>, ICoin
     {
         private bool taken;
-        private readonly ICollisionHandler<CircleHitbox, ICoin> collisionHandler = 
-            new CollisionHandlerImpl<CircleHitbox, ICoin>(new CoinCollisionActioner(), 
+        private readonly ICollisionHandler<CircleHitbox, BasicCoin> collisionHandler = 
+            new CollisionHandlerImpl<CircleHitbox, ICoin>(new CoinCollisionActioner<BasicCoin>(), 
             new CoinCollisionChecker());
 
         public override bool IsTaken => taken;

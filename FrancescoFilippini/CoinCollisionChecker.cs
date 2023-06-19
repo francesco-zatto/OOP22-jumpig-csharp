@@ -4,9 +4,9 @@ using FrancescoZattoni;
 
 namespace FrancescoFilippini
 {
-    public abstract class CoinCollisionChecker<C> : AbstractCollisionChecker<RectangleHitbox, C> where C : ICoin
+    public class CoinCollisionChecker : AbstractCollisionChecker<CircleHitbox, ICoin>
     {
-        protected override bool AreBoundsColliding(IPlayer player, C gameEntity)
+        protected override bool AreBoundsColliding(IPlayer player, ICoin gameEntity)
         {
             RectangleHitbox playerHitbox = player.Hitbox;
             CircleHitbox coinHitbox = gameEntity.Hitbox;
@@ -53,7 +53,7 @@ namespace FrancescoFilippini
                 ? playerhitbox.UpperY : playerhitbox.LowerY;
         }
 
-        protected override bool CanEntityCollide(C gameEntity) => !gameEntity.IsTaken;
+        protected override bool CanEntityCollide(ICoin gameEntity) => true;
 
         protected override bool CanPlayerCollide(IPlayer player) => true;
 
